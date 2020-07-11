@@ -44,6 +44,13 @@ namespace Lesson_3Console
             DataPointHelper helper = new DataPointJson();
             var b = helper.Write(filePath, dataPoints);
             Console.WriteLine(b ? "Записано" : "Ошибка");
+
+            var dataPointsR = helper.Read(filePath);
+            Console.WriteLine("Считываем");
+            foreach (var dp in dataPointsR)
+            {
+                Console.WriteLine(dp);
+            }
         }
     }
 }
