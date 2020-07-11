@@ -10,7 +10,10 @@ namespace Lesson_3Console
     {
         public override IEnumerable<DataPoint> Read(string filePath) 
         { 
-            throw new NotImplementedException(); 
+            //throw new NotImplementedException();
+            return 
+                File.ReadLines(filePath)
+                .Select(Parse);
         }
         public override bool Write(string filePath, IEnumerable<DataPoint> dataPoints) 
         { 
@@ -56,7 +59,8 @@ namespace Lesson_3Console
             var x = float.Parse(sCoords[0]);
             var y = float.Parse(sCoords[1]);
             // 3. Value имеет тип string так что никаких дополнительных действий не требуется 
-            var value = sParts[1];    // теперь остается только создать объект DataPoint  
+            var value = sParts[1];    
+            // теперь остается только создать объект DataPoint  
             // все данные уже есть  
             return new DataPoint
             {
