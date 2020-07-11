@@ -12,12 +12,20 @@ namespace Lesson_3Console
 
         public FileOiService()
         {
-            
+
         }
 
         public IEnumerable<Student> LoadData()
         {
-            return null;
+            var fileExist = File.Exists(PATH);
+            if (fileExist == true)
+            {
+                File.ReadAllLines(PATH);
+                return new IEnumerable<Student>();
+            }
+            Console.WriteLine("Файл отсутствует");
+            
+            
         }
 
         public void SaveData(string path, IEnumerable<Student> studentList)

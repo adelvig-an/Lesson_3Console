@@ -14,5 +14,7 @@ namespace Lesson_3Console
         public string YearUniversity { get; set; }
         public string FullName { get; set; }
         public bool IsStudent { get; set; }
+
+        public override string ToString() => "Слово";
     }
 }
