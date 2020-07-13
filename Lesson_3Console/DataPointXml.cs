@@ -16,22 +16,18 @@ namespace Lesson_3Console
 
         public override bool Write(string filePath, IEnumerable<DataPoint> dataPoints)
         {
-            FileStream fstream = null;
+            //FileStream fstream = null;
             try
             {
-                fstream = new FileStream(filePath, FileMode.OpenOrCreate);
+                using var fstream = new FileStream(filePath, FileMode.OpenOrCreate);
                 XmlSerializer serializer = new XmlSerializer(typeof(IEnumerable<DataPoint>));
-                TextWriter textWriter = new StreamWriter(filePath);
-                serializer.Serialize(textWriter, dataPoints);
-                textWriter.Close();
+                serializer.Serialize(fstream, dataPoints);
                 //string json = JsonConvert.SerializeObject(dataPoints);
                 //File.WriteAllText(filePath, json);
                 return true;
             }
             catch
             {
-                if (fstream != null)
-                    fstream.Close();
                 return false;
             }
         }
