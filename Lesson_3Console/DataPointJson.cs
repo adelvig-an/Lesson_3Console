@@ -11,9 +11,10 @@ namespace Lesson_3Console
     {
         public override IEnumerable<DataPoint> Read(string filePath)
         {
-            //throw new NotImplementedException();
+            //throw new NotImplementedException();.
+            string json = File.ReadAllText(filePath);
             return
-                JsonConvert.DeserializeObject<IEnumerable<DataPoint>>(filePath);
+                JsonConvert.DeserializeObject<IEnumerable<DataPoint>>(json);
         }
         public override bool Write(string filePath, IEnumerable<DataPoint> dataPoints)
         {

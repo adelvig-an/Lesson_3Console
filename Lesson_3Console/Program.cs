@@ -19,7 +19,7 @@ namespace Lesson_3Console
 
             //new FileTxt().SaveData("temp.txt", testData);
 
-            const string filePath = "temp_2.josn"; 
+            const string filePath = "temp_2.xml"; 
             var dataPoint1 = new DataPoint(); 
             var dataPoint2 = new DataPoint() { X = 10, Y = 30, Value = "Test" }; 
             var dataPoints = new DataPoint[] { dataPoint1, dataPoint2 }; 
@@ -41,16 +41,27 @@ namespace Lesson_3Console
             //}
 
 
-            DataPointHelper helper = new DataPointJson();
+            //DataPointHelper helper = new DataPointJson();
+            //var b = helper.Write(filePath, dataPoints);
+            //Console.WriteLine(b ? "Записано" : "Ошибка");
+
+            //var dataPointsR = helper.Read(filePath);
+            //Console.WriteLine("Считываем");
+            //foreach (var dp in dataPointsR)
+            //{
+            //    Console.WriteLine(dp);
+            //}
+
+            DataPointHelper helper = new DataPointXml();
             var b = helper.Write(filePath, dataPoints);
             Console.WriteLine(b ? "Записано" : "Ошибка");
 
-            var dataPointsR = helper.Read(filePath);
-            Console.WriteLine("Считываем");
-            foreach (var dp in dataPointsR)
-            {
-                Console.WriteLine(dp);
-            }
+            //var dataPointsR = helper.Read(filePath);
+            //Console.WriteLine("Считываем");
+            //foreach (var dp in dataPointsR)
+            //{
+            //    Console.WriteLine(dp);
+            //}
         }
     }
 }
